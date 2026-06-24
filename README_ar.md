@@ -227,6 +227,9 @@
 
 ## روابط ذات صلة
 
+- [مقال ياباني على NOTE: النينيو في عصر الاحترار العالمي تحذير من الأرض](https://note.com/inchacomusho/n/n3426a35cb2a2)
+  مقال عام باللغة اليابانية يشرح تراكم حرارة المحيط، ومخاطر النينيو القوي، ووظائف التبريد الطبيعية، والمحاسبة الحرارية، وأرصدة التبريد.
+
 - [Sustainable Future Cooling Credit Portal](https://inchacomisho.github.io/Sustainable-Future-Cooling-Credit-Portal/)
 - [Cooling Credit Framework](https://github.com/InchaComisho/Cooling-Credit-Framework)
 - [Carbon Credit Limitations and Cooling Credit](https://github.com/InchaComisho/carbon-credit-limitations-cooling-credit)

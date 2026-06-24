@@ -227,6 +227,9 @@ Cooling Credits are proposed as one way to evaluate and reward that restoration.
 
 ## Related Links
 
+- [Japanese NOTE article: El Niño in the Age of Global Warming Is a Warning from the Earth](https://note.com/inchacomusho/n/n3426a35cb2a2)
+  A Japanese public article explaining ocean heat accumulation, Super El Niño risk, natural cooling functions, thermal accounting, and Cooling Credits.
+
 - [Sustainable Future Cooling Credit Portal](https://inchacomisho.github.io/Sustainable-Future-Cooling-Credit-Portal/)
 - [Cooling Credit Framework](https://github.com/InchaComisho/Cooling-Credit-Framework)
 - [Carbon Credit Limitations and Cooling Credit](https://github.com/InchaComisho/carbon-credit-limitations-cooling-credit)

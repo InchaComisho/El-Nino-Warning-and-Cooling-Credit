@@ -361,6 +361,9 @@
 
 ## Related Links / 関連リンク
 
+- [NOTE版：温暖化時代のエルニーニョは、地球からの警告である](https://note.com/inchacomusho/n/n3426a35cb2a2)
+  海洋蓄熱、スーパーエルニーニョのリスク、自然循環の崩れ、熱会計、クーリングクレジットへの接続を一般向けに整理した日本語記事。
+
 - [Sustainable Future Cooling Credit Portal](https://inchacomisho.github.io/Sustainable-Future-Cooling-Credit-Portal/)
 - [Cooling Credit Framework](https://github.com/InchaComisho/Cooling-Credit-Framework)
 - [Carbon Credit Limitations and Cooling Credit](https://github.com/InchaComisho/carbon-credit-limitations-cooling-credit)
