@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://inchacomisho.github.io/El-Nino-Warning-and-Cooling-Credit/sitemap.xml
