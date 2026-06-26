@@ -14,6 +14,8 @@
       --leaf: #2b9348;
       --sand: #f8f6ef;
       --sky: #e7f5ff;
+      --panel: #fbfdff;
+      --white: #ffffff;
     }
     * {
       box-sizing: border-box;
@@ -22,19 +24,22 @@
       margin: 0;
       font-family: Arial, "Noto Sans", sans-serif;
       color: var(--ink);
-      background: #ffffff;
+      background: var(--white);
       line-height: 1.65;
+    }
+    body[dir="rtl"] {
+      text-align: right;
     }
     header {
       min-height: 78vh;
       display: grid;
       align-items: end;
       background:
-        linear-gradient(180deg, rgba(10, 36, 60, 0.18), rgba(10, 36, 60, 0.78)),
+        linear-gradient(180deg, rgba(10, 36, 60, 0.18), rgba(10, 36, 60, 0.80)),
         url("./simulations/el_nino_heat_stacking_and_cooling_credit_transition/outputs/ocean_heat_load_pathways.png");
       background-size: cover;
       background-position: center;
-      color: white;
+      color: var(--white);
       padding: 48px 22px;
     }
     .hero-inner,
@@ -42,36 +47,75 @@
       width: min(1080px, 100%);
       margin: 0 auto;
     }
+    .eyebrow {
+      margin: 0 0 12px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #d9f7ff;
+    }
+    body[dir="rtl"] .eyebrow {
+      letter-spacing: 0;
+    }
     h1 {
-      max-width: 820px;
+      max-width: 860px;
       margin: 0 0 18px;
       font-size: clamp(2.25rem, 7vw, 5.7rem);
       line-height: 1.02;
       letter-spacing: 0;
     }
-    .hero-lines {
+    .lead {
       max-width: 780px;
-      font-size: 1.06rem;
+      margin: 0;
+      font-size: 1.12rem;
     }
-    nav {
+    .language-switcher,
+    .hero-links {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 26px;
+      margin-top: 24px;
     }
-    nav a,
-    .button {
+    button,
+    .hero-links a {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       min-height: 40px;
-      padding: 8px 12px;
+      padding: 8px 13px;
       border: 1px solid rgba(255, 255, 255, 0.55);
       color: inherit;
       text-decoration: none;
-      background: rgba(255, 255, 255, 0.11);
+      background: rgba(255, 255, 255, 0.12);
+      font: inherit;
+      cursor: pointer;
+    }
+    button.active,
+    .hero-links a:hover,
+    button:hover {
+      background: rgba(255, 255, 255, 0.25);
+      border-color: rgba(255, 255, 255, 0.85);
     }
     main {
       padding: 44px 22px 70px;
+    }
+    .note {
+      margin: 0 0 26px;
+      padding: 14px 16px;
+      border-left: 4px solid var(--sea);
+      background: #f1fbfd;
+      color: var(--muted);
+    }
+    body[dir="rtl"] .note {
+      border-left: 0;
+      border-right: 4px solid var(--sea);
+    }
+    .panel {
+      display: none;
+    }
+    .panel.active {
+      display: block;
     }
     section {
       padding: 30px 0;
@@ -83,12 +127,22 @@
       line-height: 1.2;
       letter-spacing: 0;
     }
+    h3 {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
     p {
-      max-width: 820px;
+      max-width: 840px;
       margin: 0 0 14px;
     }
     ul {
       padding-left: 22px;
+    }
+    body[dir="rtl"] ul {
+      padding-left: 0;
+      padding-right: 22px;
     }
     a {
       color: var(--sea);
@@ -103,21 +157,16 @@
       border: 1px solid var(--line);
       border-radius: 8px;
       padding: 18px;
-      background: #fbfdff;
+      background: var(--panel);
     }
     .graph {
       width: 100%;
       border: 1px solid var(--line);
       border-radius: 8px;
       margin-top: 14px;
+      background: var(--white);
     }
-    .jp {
-      background: var(--sky);
-      margin-inline: -22px;
-      padding-inline: 22px;
-    }
-    .ar {
-      direction: rtl;
+    .related {
       background: var(--sand);
       margin-inline: -22px;
       padding-inline: 22px;
@@ -127,88 +176,185 @@
       color: var(--muted);
       text-align: center;
     }
+    @media (max-width: 620px) {
+      header {
+        min-height: 74vh;
+        padding: 34px 18px;
+      }
+      main {
+        padding-inline: 18px;
+      }
+      .related {
+        margin-inline: -18px;
+        padding-inline: 18px;
+      }
+      button,
+      .hero-links a {
+        width: 100%;
+      }
+    }
   </style>
 </head>
-<body>
+<body dir="ltr">
   <header>
     <div class="hero-inner">
-      <h1>El Niño is a warning from a warming ocean.</h1>
-      <div class="hero-lines">
-        <p>エルニーニョは、熱を抱えた海からの警告である。</p>
-        <p lang="ar" dir="rtl">النينيو تحذير من محيط يزداد سخونة.</p>
+      <p class="eyebrow" id="eyebrow">Thermal Accounting / Cooling Credit</p>
+      <h1 id="title">El Niño is a warning from a warming ocean.</h1>
+      <p class="lead" id="lead">A strong El Niño arrives on an ocean and atmosphere that already contain excess heat.</p>
+
+      <div class="language-switcher" aria-label="Language switcher">
+        <button type="button" data-lang="en" aria-pressed="true">English</button>
+        <button type="button" data-lang="ja" aria-pressed="false">日本語</button>
+        <button type="button" data-lang="ar" aria-pressed="false">العربية</button>
       </div>
-      <nav aria-label="Primary links">
-        <a href="./README.md">English</a>
-        <a href="./README_ja.md">日本語</a>
-        <a href="./README_ar.md">العربية</a>
-        <a href="./docs/CARBON_CREDIT_TO_COOLING_CREDIT_TRANSITION.md">Transition</a>
-        <a href="./simulations/el_nino_heat_stacking_and_cooling_credit_transition/README.md">Simulation</a>
+
+      <nav class="hero-links" aria-label="Primary links">
+        <a id="repoLink" href="https://github.com/InchaComisho/El-Nino-Warning-and-Cooling-Credit">Repository</a>
+        <a id="docLink" href="https://github.com/InchaComisho/El-Nino-Warning-and-Cooling-Credit/blob/main/docs/CARBON_CREDIT_TO_COOLING_CREDIT_TRANSITION.md">Transition Document</a>
+        <a id="simLink" href="https://github.com/InchaComisho/El-Nino-Warning-and-Cooling-Credit/tree/main/simulations/el_nino_heat_stacking_and_cooling_credit_transition">Simulation Module</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section>
-      <h2>Heat Stacking Mechanism</h2>
-      <p>El Nino remains a natural climate phenomenon, but in a warmer climate it can occur on top of already accumulated ocean heat, land heat, urban heat, WBGT stress, soil dryness, and weakened natural cooling functions.</p>
-      <p>The risk is not only an anomaly in one year. It is the stacking of a heat pulse on a higher baseline.</p>
-    </section>
+    <p class="note" id="note">Document links use absolute GitHub URLs so they do not break when opened from the GitHub Pages domain.</p>
 
-    <section>
-      <h2>Carbon Accounting vs Thermal Accounting</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Carbon Credits</h3>
-          <p>Ask how much CO2 was reduced, removed, or offset. This remains important for emissions reduction and accounting.</p>
+    <div class="panel active" id="en" lang="en">
+      <section>
+        <h2>Heat Stacking Mechanism</h2>
+        <p>El Niño remains a natural climate phenomenon, but in a warmer climate it can occur on top of accumulated ocean heat, land heat, urban heat, WBGT stress, soil dryness, and weakened natural cooling functions.</p>
+        <p>The risk is not only an anomaly in one year. It is the stacking of a heat pulse on a higher baseline.</p>
+      </section>
+
+      <section>
+        <h2>Carbon Accounting vs Thermal Accounting</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Carbon Credits</h3>
+            <p>Ask how much CO₂ was reduced, removed, or offset.</p>
+          </div>
+          <div class="card">
+            <h3>Cooling Credits</h3>
+            <p>Ask how much heat load was physically reduced, avoided, dissipated, or buffered.</p>
+          </div>
         </div>
-        <div class="card">
-          <h3>Cooling Credits</h3>
-          <p>Ask how much heat load was reduced, avoided, dissipated, or buffered through measurable cooling functions.</p>
+      </section>
+
+      <section>
+        <h2>Heat Inertia and Time Lag</h2>
+        <p>Emission reduction is necessary, but it does not immediately remove heat already stored in the ocean, land, cities, soil, and water-vapor system.</p>
+        <p>The Earth cools when heat input is reduced, existing heat load is physically lowered or buffered, and natural cooling functions are restored.</p>
+      </section>
+
+      <section>
+        <h2>Cooling Credit Transition</h2>
+        <p>Cooling Credits are proposed as a transition from carbon accounting alone toward thermal accounting and measurable cooling contribution.</p>
+        <p><a href="https://github.com/InchaComisho/El-Nino-Warning-and-Cooling-Credit/blob/main/docs/CARBON_CREDIT_TO_COOLING_CREDIT_TRANSITION.md">Read the transition document</a></p>
+      </section>
+
+      <section>
+        <h2>Simulation</h2>
+        <p>The conceptual simulation compares Carbon Credit Baseline, Stronger Carbon Mitigation, Cooling Credit Transition, and Cooling Credit Acceleration.</p>
+        <p><a href="https://github.com/InchaComisho/El-Nino-Warning-and-Cooling-Credit/tree/main/simulations/el_nino_heat_stacking_and_cooling_credit_transition">Open the simulation module</a></p>
+        <img class="graph" src="./simulations/el_nino_heat_stacking_and_cooling_credit_transition/outputs/el_nino_heat_stacking_index.png" alt="El Niño heat-stacking index chart">
+      </section>
+    </div>
+
+    <div class="panel" id="ja" lang="ja">
+      <section>
+        <h2>熱の重なりとしてのエルニーニョ</h2>
+        <p>エルニーニョは自然現象である。しかし温暖化時代には、すでに海洋熱、陸上熱、都市熱、WBGTリスク、土壌乾燥、自然冷却機能の弱体化がある状態に、さらに熱が重なる。</p>
+        <p>問題は単年の異常値ではなく、高くなった基礎温度の上に熱の波が重なることである。</p>
+      </section>
+
+      <section>
+        <h2>カーボン会計と熱会計</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>カーボンクレジット</h3>
+            <p>どれだけCO₂を削減・除去・相殺したかを問う。</p>
+          </div>
+          <div class="card">
+            <h3>クーリングクレジット</h3>
+            <p>どれだけ熱負荷を物理的に下げ、避け、逃がし、緩衝したかを問う。</p>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section>
-      <h2>Cooling Credit Transition</h2>
-      <p>Cooling Credits are proposed as a complementary and potentially transitional framework from carbon accounting alone toward thermal accounting and measurable cooling contribution.</p>
-      <p><a href="./docs/CARBON_CREDIT_TO_COOLING_CREDIT_TRANSITION.md">Read the transition document</a></p>
-    </section>
+      <section>
+        <h2>熱慣性とタイムラグ</h2>
+        <p>排出削減は必要である。しかし、それは海洋、陸地、都市、土壌、大気中の水蒸気システムにすでに蓄積された熱を即座に取り除くものではない。</p>
+        <p>地球は、熱の流入を減らし、既存の熱負荷を物理的に下げ、緩衝し、自然冷却機能を回復したときに冷える。</p>
+      </section>
 
-    <section>
-      <h2>Simulation</h2>
-      <p>The conceptual simulation compares four pathways from 2015 to 2035: Carbon Credit Baseline, Stronger Carbon Mitigation, Cooling Credit Transition, and Cooling Credit Acceleration.</p>
-      <p><a href="./simulations/el_nino_heat_stacking_and_cooling_credit_transition/README.md">Open the simulation module</a></p>
-      <img class="graph" src="./simulations/el_nino_heat_stacking_and_cooling_credit_transition/outputs/el_nino_heat_stacking_index.png" alt="El Nino heat-stacking index chart">
-    </section>
+      <section>
+        <h2>クーリングクレジットへの移行</h2>
+        <p>クーリングクレジットは、カーボン会計だけに偏った制度から、熱会計と実測可能な冷却貢献へ移行するための制度として提案される。</p>
+        <p><a href="https://github.com/InchaComisho/El-Nino-Warning-and-Cooling-Credit/blob/main/docs/CARBON_CREDIT_TO_COOLING_CREDIT_TRANSITION_ja.md">移行文書を読む</a></p>
+      </section>
 
-    <section class="jp" lang="ja">
-      <h2>日本語</h2>
-      <p>カーボンクレジットは排出削減・除去・相殺の会計を支える可能性がある。しかし、それだけでは海洋熱、陸上熱、WBGT、土壌水分、蒸散、水循環、自然冷却機能が実際に改善したかどうかを直接測定できない。</p>
-      <p>クーリングクレジットは、熱会計と実測可能な冷却貢献へ移行するための制度として提案される。</p>
-      <p><a href="./docs/CARBON_CREDIT_TO_COOLING_CREDIT_TRANSITION_ja.md">移行文書を読む</a></p>
-    </section>
+      <section>
+        <h2>シミュレーション</h2>
+        <p>概念シミュレーションは、カーボンクレジット基準、強化された炭素緩和、クーリングクレジット移行、クーリングクレジット加速を比較する。</p>
+        <p><a href="https://github.com/InchaComisho/El-Nino-Warning-and-Cooling-Credit/tree/main/simulations/el_nino_heat_stacking_and_cooling_credit_transition">シミュレーションを開く</a></p>
+        <img class="graph" src="./simulations/el_nino_heat_stacking_and_cooling_credit_transition/outputs/el_nino_heat_stacking_index.png" alt="エルニーニョ熱スタッキング指標">
+      </section>
+    </div>
 
-    <section class="ar" lang="ar" dir="rtl">
-      <h2>العربية</h2>
-      <p>يمكن لأرصدة الكربون أن تدعم محاسبة الانبعاثات، لكنها لا تقيس مباشرة ما إذا كان الحمل الحراري على الأرض قد انخفض فعلا.</p>
-      <p>تقترح أرصدة التبريد كطبقة محاسبة حرارية تقيس مساهمة التبريد القابلة للتحقق.</p>
-    </section>
+    <div class="panel" id="ar" lang="ar" dir="rtl">
+      <section>
+        <h2>آلية تراكم الحرارة</h2>
+        <p>يبقى النينيو ظاهرة مناخية طبيعية، لكنه في عصر الاحترار العالمي يأتي فوق محيط ويابسة ومدن وتربة وغلاف جوي تحتوي بالفعل على حرارة زائدة.</p>
+        <p>الخطر هو تراكم موجة حرارية فوق خط أساس أكثر سخونة.</p>
+      </section>
 
-    <section>
-      <h2>Related Repositories</h2>
+      <section>
+        <h2>محاسبة الكربون والمحاسبة الحرارية</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>أرصدة الكربون</h3>
+            <p>تسأل عن مقدار ثاني أكسيد الكربون الذي خُفّض أو أزيل أو عُوّض.</p>
+          </div>
+          <div class="card">
+            <h3>أرصدة التبريد</h3>
+            <p>تسأل عن مقدار الحمل الحراري الذي خُفّض أو جرى تجنبه أو تبديده أو تخفيفه.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>القصور الحراري والتأخر الزمني</h2>
+        <p>خفض الانبعاثات ضروري، لكنه لا يزيل فورا الحرارة المخزنة في المحيط واليابسة والمدن والتربة ونظام بخار الماء.</p>
+        <p>يبرد الكوكب عندما ينخفض إدخال الحرارة، وتُخفّض الأحمال الحرارية الموجودة أو تُخفّف فيزيائيا، وتُستعاد وظائف التبريد الطبيعية.</p>
+      </section>
+
+      <section>
+        <h2>الانتقال إلى أرصدة التبريد</h2>
+        <p>تقترح أرصدة التبريد كمسار انتقال من محاسبة الكربون وحدها إلى المحاسبة الحرارية ومساهمة تبريد قابلة للقياس.</p>
+        <p><a href="https://github.com/InchaComisho/El-Nino-Warning-and-Cooling-Credit/blob/main/docs/CARBON_CREDIT_TO_COOLING_CREDIT_TRANSITION.md">قراءة وثيقة الانتقال</a></p>
+      </section>
+
+      <section>
+        <h2>المحاكاة</h2>
+        <p>تقارن المحاكاة المفاهيمية مسارات أرصدة الكربون، والتخفيف الكربوني الأقوى، والانتقال إلى أرصدة التبريد، وتسريع أرصدة التبريد.</p>
+        <p><a href="https://github.com/InchaComisho/El-Nino-Warning-and-Cooling-Credit/tree/main/simulations/el_nino_heat_stacking_and_cooling_credit_transition">فتح المحاكاة</a></p>
+        <img class="graph" src="./simulations/el_nino_heat_stacking_and_cooling_credit_transition/outputs/el_nino_heat_stacking_index.png" alt="مؤشر تراكم حرارة النينيو">
+      </section>
+    </div>
+
+    <section class="related">
+      <h2 id="relatedTitle">Related Repositories and Documents</h2>
       <ul>
+        <li><a href="https://github.com/InchaComisho/El-Nino-Warning-and-Cooling-Credit">El Niño Warning and Cooling Credit Repository</a></li>
+        <li><a href="https://github.com/InchaComisho/El-Nino-Warning-and-Cooling-Credit/blob/main/README.md">README English</a></li>
+        <li><a href="https://github.com/InchaComisho/El-Nino-Warning-and-Cooling-Credit/blob/main/README_ja.md">README Japanese</a></li>
+        <li><a href="https://github.com/InchaComisho/El-Nino-Warning-and-Cooling-Credit/blob/main/README_ar.md">README Arabic</a></li>
         <li><a href="https://github.com/InchaComisho/Cooling-Credit-Framework">Cooling Credit Framework</a></li>
         <li><a href="https://inchacomisho.github.io/Sustainable-Future-Cooling-Credit-Portal/">Sustainable Future Cooling Credit Portal</a></li>
         <li><a href="https://github.com/InchaComisho/Cooling-Credit-Definition">Cooling Credit Definition</a></li>
-        <li><a href="https://github.com/InchaComisho/Carbon-Credit-to-Cooling-Credit">Carbon Credit to Cooling Credit</a></li>
         <li><a href="https://github.com/InchaComisho/Global-Warming-Causal-Structure">Global Warming Causal Structure</a></li>
         <li><a href="https://github.com/InchaComisho/Climate-Disasters-as-Heat-Redistribution-and-Cooling-Credit">Climate Disasters as Heat Redistribution and Cooling Credit</a></li>
         <li><a href="https://github.com/InchaComisho/Direct-Planetary-Cooling">Direct Planetary Cooling</a></li>
-        <li><a href="https://github.com/InchaComisho/Cooling-Credit-Framework/blob/main/docs/business_models/EEZ_FISHERY_RECOVERY_COOLING_CREDIT_MODEL.md">EEZ Fishery Recovery Cooling Credit Business Model</a></li>
-        <li><a href="https://github.com/InchaComisho/Cooling-Credit-Framework/blob/main/docs/business_models/URBAN_GREEN_INFRASTRUCTURE_COOLING_CREDIT_MODEL.md">Urban Green Infrastructure Cooling Credit Business Model</a></li>
-        <li><a href="https://github.com/InchaComisho/Cooling-Credit-Framework/blob/main/docs/business_models/ORGANIC_MATTER_SOIL_RECOVERY_AND_DESERT_GREENING_COOLING_CREDIT_MODEL.md">Organic Matter Soil Recovery and Desert Greening Cooling Credit Model</a></li>
-        <li><a href="https://github.com/InchaComisho/Cooling-Credit-Framework/blob/main/docs/business_models/FOOD_LOSS_ORGANIC_WASTE_TO_HUMUS_COOLING_CREDIT_MODEL.md">Food Loss and Organic Waste to Humus Cooling Credit Model</a></li>
-        <li><a href="https://github.com/InchaComisho/Cooling-Credit-Framework/blob/main/docs/business_models/TOURISM_RESOURCE_RECOVERY_COOLING_CREDIT_MODEL.md">Tourism Resource Recovery Cooling Credit Model</a></li>
       </ul>
     </section>
   </main>
@@ -216,5 +362,75 @@
   <footer>
     El Nino Warning and Cooling Credit
   </footer>
+
+  <script>
+    const labels = {
+      en: {
+        eyebrow: "Thermal Accounting / Cooling Credit",
+        title: "El Niño is a warning from a warming ocean.",
+        lead: "A strong El Niño arrives on an ocean and atmosphere that already contain excess heat.",
+        repo: "Repository",
+        transition: "Transition Document",
+        simulation: "Simulation Module",
+        related: "Related Repositories and Documents",
+        note: "Document links use absolute GitHub URLs so they do not break when opened from the GitHub Pages domain.",
+        transitionUrl: "https://github.com/InchaComisho/El-Nino-Warning-and-Cooling-Credit/blob/main/docs/CARBON_CREDIT_TO_COOLING_CREDIT_TRANSITION.md"
+      },
+      ja: {
+        eyebrow: "熱会計 / クーリングクレジット",
+        title: "エルニーニョは、熱を抱えた海からの警告である。",
+        lead: "強いエルニーニョは、すでに余剰熱を抱えた海洋と大気の上に重なる。",
+        repo: "リポジトリ",
+        transition: "移行文書",
+        simulation: "シミュレーション",
+        related: "関連リポジトリと文書",
+        note: "文書リンクは GitHub Pages ドメインで開いても崩れないよう、GitHub の絶対URLにしています。",
+        transitionUrl: "https://github.com/InchaComisho/El-Nino-Warning-and-Cooling-Credit/blob/main/docs/CARBON_CREDIT_TO_COOLING_CREDIT_TRANSITION_ja.md"
+      },
+      ar: {
+        eyebrow: "المحاسبة الحرارية / أرصدة التبريد",
+        title: "النينيو تحذير من محيط يزداد سخونة.",
+        lead: "يأتي النينيو القوي فوق محيط وغلاف جوي يحتويان بالفعل على حرارة زائدة.",
+        repo: "المستودع",
+        transition: "وثيقة الانتقال",
+        simulation: "المحاكاة",
+        related: "المستودعات والوثائق ذات الصلة",
+        note: "تستخدم روابط الوثائق عناوين GitHub كاملة حتى لا تنكسر عند فتح الصفحة من نطاق GitHub Pages.",
+        transitionUrl: "https://github.com/InchaComisho/El-Nino-Warning-and-Cooling-Credit/blob/main/docs/CARBON_CREDIT_TO_COOLING_CREDIT_TRANSITION.md"
+      }
+    };
+
+    function setLang(lang) {
+      document.documentElement.lang = lang;
+      document.body.dir = lang === "ar" ? "rtl" : "ltr";
+
+      document.querySelectorAll(".panel").forEach(panel => {
+        panel.classList.toggle("active", panel.id === lang);
+      });
+
+      document.querySelectorAll("[data-lang]").forEach(button => {
+        const active = button.dataset.lang === lang;
+        button.classList.toggle("active", active);
+        button.setAttribute("aria-pressed", active ? "true" : "false");
+      });
+
+      const t = labels[lang];
+      document.getElementById("eyebrow").textContent = t.eyebrow;
+      document.getElementById("title").textContent = t.title;
+      document.getElementById("lead").textContent = t.lead;
+      document.getElementById("repoLink").textContent = t.repo;
+      document.getElementById("docLink").textContent = t.transition;
+      document.getElementById("docLink").href = t.transitionUrl;
+      document.getElementById("simLink").textContent = t.simulation;
+      document.getElementById("relatedTitle").textContent = t.related;
+      document.getElementById("note").textContent = t.note;
+    }
+
+    document.querySelectorAll("[data-lang]").forEach(button => {
+      button.addEventListener("click", () => setLang(button.dataset.lang));
+    });
+
+    setLang("en");
+  </script>
 </body>
 </html>
