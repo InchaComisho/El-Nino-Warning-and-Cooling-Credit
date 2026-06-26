@@ -253,6 +253,21 @@
 
 ---
 
+## カーボンクレジットからクーリングクレジットへの移行
+
+カーボンクレジットは、主に排出削減・除去・相殺の会計を中心に設計されている。それ自体は重要である。しかし、それだけでは、海洋熱、陸地の熱、WBGT、地表温度、土壌水分、蒸散、自然冷却機能が実際に改善したかどうかを直接測定できない。
+
+温暖化時代のエルニーニョは、熱が重なっていることを示す警告である。問うべきことは、「どれだけCO2を相殺したか」だけではない。「どれだけ熱負荷を物理的に下げ、緩衝し、逃がしたか」である。
+
+クーリングクレジットは、カーボン会計だけに偏った制度から、熱会計と実測可能な冷却貢献へ移行するための制度として提案される。
+
+- [カーボンクレジットからクーリングクレジットへの移行](./docs/CARBON_CREDIT_TO_COOLING_CREDIT_TRANSITION_ja.md)
+- [エルニーニョ熱スタッキングとクーリングクレジット移行シミュレーション](./simulations/el_nino_heat_stacking_and_cooling_credit_transition/README_ja.md)
+
+![エルニーニョ熱スタッキング指数](./simulations/el_nino_heat_stacking_and_cooling_credit_transition/outputs/el_nino_heat_stacking_index.png)
+
+---
+
 ## クーリングクレジットとは何か
 
 クーリングクレジットとは、測定可能な冷却貢献に価値を与える制度です。
@@ -369,8 +384,17 @@
 
 - [Sustainable Future Cooling Credit Portal](https://inchacomisho.github.io/Sustainable-Future-Cooling-Credit-Portal/)
 - [Cooling Credit Framework](https://github.com/InchaComisho/Cooling-Credit-Framework)
+- [Cooling Credit Definition](https://github.com/InchaComisho/Cooling-Credit-Definition)
+- [Carbon Credit to Cooling Credit](https://github.com/InchaComisho/Carbon-Credit-to-Cooling-Credit)
 - [Carbon Credit Limitations and Cooling Credit](https://github.com/InchaComisho/carbon-credit-limitations-cooling-credit)
+- [Global Warming Causal Structure](https://github.com/InchaComisho/Global-Warming-Causal-Structure)
+- [Climate Disasters as Heat Redistribution and Cooling Credit](https://github.com/InchaComisho/Climate-Disasters-as-Heat-Redistribution-and-Cooling-Credit)
 - [Direct Planetary Cooling](https://github.com/InchaComisho/Direct-Planetary-Cooling)
+- [EEZ Fishery Recovery Cooling Credit Business Model](https://github.com/InchaComisho/Cooling-Credit-Framework/blob/main/docs/business_models/EEZ_FISHERY_RECOVERY_COOLING_CREDIT_MODEL.md)
+- [Urban Green Infrastructure Cooling Credit Business Model](https://github.com/InchaComisho/Cooling-Credit-Framework/blob/main/docs/business_models/URBAN_GREEN_INFRASTRUCTURE_COOLING_CREDIT_MODEL.md)
+- [Organic Matter Soil Recovery and Desert Greening Cooling Credit Model](https://github.com/InchaComisho/Cooling-Credit-Framework/blob/main/docs/business_models/ORGANIC_MATTER_SOIL_RECOVERY_AND_DESERT_GREENING_COOLING_CREDIT_MODEL.md)
+- [Food Loss and Organic Waste to Humus Cooling Credit Model](https://github.com/InchaComisho/Cooling-Credit-Framework/blob/main/docs/business_models/FOOD_LOSS_ORGANIC_WASTE_TO_HUMUS_COOLING_CREDIT_MODEL.md)
+- [Tourism Resource Recovery Cooling Credit Model](https://github.com/InchaComisho/Cooling-Credit-Framework/blob/main/docs/business_models/TOURISM_RESOURCE_RECOVERY_COOLING_CREDIT_MODEL.md)
 - [NOAA ENSO explainer](https://www.climate.gov/enso)
 - [IPCC Special Report on the Ocean and Cryosphere in a Changing Climate](https://www.ipcc.ch/srocc/)
 - [World Meteorological Organization](https://wmo.int/)
