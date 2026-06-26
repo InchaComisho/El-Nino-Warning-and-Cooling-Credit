@@ -48,6 +48,10 @@ All values are normalized indexes from 0 to 100:
 
 - `carbon_credit_policy_index`
 - `cooling_credit_policy_index`
+- `accumulated_ocean_heat_index`
+- `heat_inertia_index`
+- `climate_time_lag_index`
+- `existing_heat_load_index`
 - `ocean_heat_load_index`
 - `sea_surface_temperature_risk_index`
 - `el_nino_heat_stacking_index`
@@ -62,6 +66,9 @@ All values are normalized indexes from 0 to 100:
 - `ocean_circulation_support_index`
 - `natural_cooling_function_index`
 - `cooling_credit_intervention_index`
+- `direct_cooling_intervention_index`
+- `natural_cooling_recovery_index`
+- `thermal_accounting_index`
 
 ## Interpretation
 
@@ -72,6 +79,38 @@ The simulation is designed to show five conceptual points:
 3. Cooling Credit pathways do not stop El Nino.
 4. Cooling Credit pathways may reduce the severity of El Nino-related heat amplification by lowering background heat load and restoring natural cooling functions.
 5. The key transition is from carbon accounting alone to thermal accounting and measurable cooling contribution.
+
+## Heat Inertia and Cost-Effectiveness Interpretation
+
+The heat-inertia problem is the core reason why carbon accounting alone is insufficient. More than 90% of the excess heat accumulated in the climate system has been absorbed by the ocean, so the climate problem is also a problem of accumulated heat, delayed response, and weakened natural cooling functions.
+
+Emission reduction is a brake. It helps prevent additional heat input, but it does not immediately remove heat already stored in the ocean, land, built environment, soil, and atmospheric water-vapor system.
+
+The simulation therefore distinguishes between:
+
+```text
+1. preventing additional heat input
+2. reducing or buffering existing heat load
+3. restoring natural cooling functions
+```
+
+Carbon accounting mainly addresses the first layer. Cooling Credits are proposed to address the second and third layers.
+
+A carbon-credit-centered pathway may improve accounting scores while leaving physical heat-load indicators high. A Cooling Credit pathway should be evaluated by whether it directly reduces or buffers:
+
+- ocean heat-load index
+- accumulated ocean heat index
+- heat inertia and climate time-lag indexes
+- WBGT risk
+- land-surface and urban heat
+- soil dryness
+- water-cycle failure
+- natural cooling-function decline
+- El Nino heat-stacking amplification
+
+This distinction is also a cost-effectiveness question. Carbon credits and carbon pricing can support emissions accounting, regulatory compliance, and some mitigation finance. However, carbon-credit-centered policy has not demonstrated sufficient cost-effectiveness as the primary climate-finance mechanism if the result is better accounting without measurable cooling of accumulated heat load.
+
+The Earth does not cool because emissions are offset on paper. It cools only when heat input is reduced, existing heat load is physically lowered or buffered, and natural cooling functions are restored.
 
 ## Outputs
 

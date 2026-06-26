@@ -154,13 +154,26 @@ def simulate_scenario(scenario: Scenario) -> list[dict[str, float | int | str]]:
 
         carbon_heat_relief = 0.13 * carbon_policy
         direct_heat_relief = scenario.direct_heat_relief_post_2026 * post + 0.34 * cooling_intervention
+        accumulated_ocean_heat = clamp(57 + 1.45 * i + 0.45 * el_nino_pulse(year) - 0.16 * direct_heat_relief - 0.08 * natural_cooling)
+        heat_inertia = clamp(0.64 * accumulated_ocean_heat + 0.22 * (100 - natural_cooling) + 0.14 * warming_pressure)
+        climate_time_lag = clamp(0.58 * heat_inertia + 0.26 * accumulated_ocean_heat - 0.10 * cooling_intervention)
+        natural_cooling_recovery = clamp(0.40 * natural_cooling + 0.24 * soil_moisture + 0.20 * water_cycle + 0.16 * ocean_circulation)
+        direct_cooling_intervention = clamp(0.72 * cooling_intervention + 0.28 * direct_heat_relief)
         ocean_heat_load = clamp(
             49
             + warming_pressure
             + 0.75 * el_nino_pulse(year)
+            + 0.12 * heat_inertia
             - 0.24 * natural_cooling
             - 0.34 * direct_heat_relief
             - carbon_heat_relief
+        )
+        existing_heat_load = clamp(
+            0.46 * accumulated_ocean_heat
+            + 0.24 * ocean_heat_load
+            + 0.18 * (47 + 1.25 * i)
+            + 0.12 * climate_time_lag
+            - 0.18 * direct_cooling_intervention
         )
         sea_surface_temp_risk = clamp(0.78 * ocean_heat_load + 0.95 * el_nino_pulse(year) + 8)
         urban_heat = clamp(
@@ -181,6 +194,13 @@ def simulate_scenario(scenario: Scenario) -> list[dict[str, float | int | str]]:
             + 0.14 * food_water
             + 0.16 * (100 - natural_cooling)
         )
+        thermal_accounting = clamp(
+            0.30 * cooling_policy
+            + 0.24 * direct_cooling_intervention
+            + 0.22 * natural_cooling_recovery
+            + 0.14 * water_cycle
+            + 0.10 * ocean_circulation
+        )
 
         rows.append(
             {
@@ -188,6 +208,10 @@ def simulate_scenario(scenario: Scenario) -> list[dict[str, float | int | str]]:
                 "scenario": scenario.name,
                 "carbon_credit_policy_index": round(carbon_policy, 2),
                 "cooling_credit_policy_index": round(cooling_policy, 2),
+                "accumulated_ocean_heat_index": round(accumulated_ocean_heat, 2),
+                "heat_inertia_index": round(heat_inertia, 2),
+                "climate_time_lag_index": round(climate_time_lag, 2),
+                "existing_heat_load_index": round(existing_heat_load, 2),
                 "ocean_heat_load_index": round(ocean_heat_load, 2),
                 "sea_surface_temperature_risk_index": round(sea_surface_temp_risk, 2),
                 "el_nino_heat_stacking_index": round(el_nino_heat_stacking, 2),
@@ -202,6 +226,9 @@ def simulate_scenario(scenario: Scenario) -> list[dict[str, float | int | str]]:
                 "ocean_circulation_support_index": round(ocean_circulation, 2),
                 "natural_cooling_function_index": round(natural_cooling, 2),
                 "cooling_credit_intervention_index": round(cooling_intervention, 2),
+                "direct_cooling_intervention_index": round(direct_cooling_intervention, 2),
+                "natural_cooling_recovery_index": round(natural_cooling_recovery, 2),
+                "thermal_accounting_index": round(thermal_accounting, 2),
             }
         )
 
@@ -318,11 +345,11 @@ def plot_causal_loop() -> None:
 def make_plots(rows: list[dict[str, float | int | str]]) -> None:
     plot_lines(rows, ["el_nino_heat_stacking_index"], "El Nino heat-stacking index", "Risk index (0-100)", "el_nino_heat_stacking_index.png")
     plot_policy_response(rows)
-    plot_lines(rows, ["ocean_heat_load_index"], "Ocean heat-load pathways", "Heat-load index (0-100)", "ocean_heat_load_pathways.png")
+    plot_lines(rows, ["ocean_heat_load_index", "accumulated_ocean_heat_index", "existing_heat_load_index"], "Ocean heat-load pathways and heat inertia", "Heat-load index (0-100)", "ocean_heat_load_pathways.png")
     plot_lines(rows, ["marine_heatwave_risk_index", "coral_bleaching_risk_index"], "Marine heatwave and coral bleaching risk", "Risk index (0-100)", "marine_heatwave_risk_index.png")
     plot_lines(rows, ["wbgt_land_heat_risk_index", "urban_heat_load_index"], "WBGT and land heat risk", "Risk index (0-100)", "wbgt_and_land_heat_risk_index.png")
-    plot_lines(rows, ["natural_cooling_function_index", "soil_moisture_recovery_index", "water_cycle_recovery_index"], "Natural cooling recovery", "Recovery index (0-100)", "natural_cooling_recovery_index.png")
-    plot_lines(rows, ["cooling_credit_intervention_index"], "Cooling Credit transition effect", "Intervention index (0-100)", "cooling_credit_transition_effect.png")
+    plot_lines(rows, ["natural_cooling_function_index", "natural_cooling_recovery_index", "soil_moisture_recovery_index", "water_cycle_recovery_index"], "Natural cooling recovery", "Recovery index (0-100)", "natural_cooling_recovery_index.png")
+    plot_lines(rows, ["cooling_credit_intervention_index", "direct_cooling_intervention_index", "thermal_accounting_index"], "Cooling Credit transition effect", "Intervention index (0-100)", "cooling_credit_transition_effect.png")
     plot_causal_loop()
 
 

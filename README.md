@@ -135,6 +135,12 @@ In the age of global warming, El Niño should be understood as a heat-stacking w
 
 Cooling Credits are proposed as a transition from carbon accounting alone toward thermal accounting and measurable cooling contribution.
 
+The heat-inertia problem is central. Emissions reduction is necessary, but it mainly works as a brake on additional heating. It does not immediately remove heat already stored in the ocean, land, built environment, soil, and water-vapor system.
+
+The Earth does not cool because emissions are offset on paper. It cools only when heat input is reduced, existing heat load is physically lowered or buffered, and natural cooling functions are restored.
+
+This is also a cost-effectiveness problem. Carbon credits can support accounting, compliance, and some mitigation finance, but carbon-credit-centered policy has not demonstrated sufficient cost-effectiveness as the primary climate-finance mechanism if it improves accounting scores while physical heat-load indicators remain high.
+
 - [Carbon Credit to Cooling Credit Transition](./docs/CARBON_CREDIT_TO_COOLING_CREDIT_TRANSITION.md)
 - [El Niño heat-stacking and Cooling Credit transition simulation](./simulations/el_nino_heat_stacking_and_cooling_credit_transition/README.md)
 
