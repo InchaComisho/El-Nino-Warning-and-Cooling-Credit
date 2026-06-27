@@ -280,6 +280,29 @@
 - [Global Warming Causal Structure - GitHub Pages](https://inchacomisho.github.io/Global-Warming-Causal-Structure/)
 - [Cooling Credit Definition](https://github.com/InchaComisho/Cooling-Credit-Definition)
 
+<!-- COOLING-CREDIT-REPOSITORY-FAMILY:START -->
+
+---
+
+## عائلة مستودعات أرصدة التبريد ذات الصلة
+
+هذا المستودع جزء من نظام معرفي أوسع حول أرصدة التبريد.
+تم ربط المستودعات ذات الصلة ببعضها بحيث يمكن قراءة التعريف، والإطار، ومحفظة التنفيذ، ونموذج التمويل، وMRV، وتفسير مخاطر الكوارث، والانتقال من أرصدة الكربون إلى أرصدة التبريد، كبنية واحدة متصلة.
+
+| المستودع | الدور |
+|---|---|
+| [Cooling-Credit](https://github.com/InchaComisho/Cooling-Credit) | البوابة الأساسية لمفهوم أرصدة التبريد |
+| [Cooling-Credit-Definition](https://github.com/InchaComisho/Cooling-Credit-Definition) | تعريف أرصدة التبريد والأساس المفاهيمي |
+| [Cooling-Credit-Framework](https://github.com/InchaComisho/Cooling-Credit-Framework) | الإطار ونماذج الأعمال والبنية التطبيقية |
+| [Cooling-Credit-Implementation-Portfolio](https://github.com/InchaComisho/Cooling-Credit-Implementation-Portfolio) | محفظة نماذج التنفيذ وأنواع المشاريع |
+| [Cooling-Credit-Implementation-and-Finance-Model](https://github.com/InchaComisho/Cooling-Credit-Implementation-and-Finance-Model) | خارطة التنفيذ، ونموذج التمويل، وMRV، والمحاكاة، وسيناريو الاستقرار العالمي |
+| [Carbon-Credit-to-Cooling-Credit](https://github.com/InchaComisho/Carbon-Credit-to-Cooling-Credit) | منطق الانتقال من محاسبة أرصدة الكربون إلى نتائج التبريد الفيزيائي |
+| [carbon-credit-limitations-cooling-credit](https://github.com/InchaComisho/carbon-credit-limitations-cooling-credit) | حدود مقاربات أرصدة الكربون والحاجة إلى تقييم قائم على التبريد |
+| [Sustainable-Future-Cooling-Credit-Portal](https://github.com/InchaComisho/Sustainable-Future-Cooling-Credit-Portal) | بوابة دمج المستقبل المستدام مع أرصدة التبريد |
+| [El-Nino-Warning-and-Cooling-Credit](https://github.com/InchaComisho/El-Nino-Warning-and-Cooling-Credit) | النينيو، وتراكم الحرارة، ومنطق التحذير، وصلته بأرصدة التبريد |
+| [Climate-Disasters-as-Heat-Redistribution-and-Cooling-Credit](https://github.com/InchaComisho/Climate-Disasters-as-Heat-Redistribution-and-Cooling-Credit) | تفسير الكوارث المناخية باعتبارها إعادة توزيع للحرارة وفشلا في وظائف التبريد |
+
+<!-- COOLING-CREDIT-REPOSITORY-FAMILY:END -->
 
 
 ## المؤلف
