@@ -135,3 +135,22 @@ python simulations/el_nino_heat_stacking_and_cooling_credit_transition/el_nino_h
 ## 注意
 
 クーリングクレジットは排出の免罪符ではない。排出削減は引き続き必要である。冷却行為は物理的に測定され、地域生態リスクも監視されなければならない。このモデルは概念比較ツールであり、検証済みの気候予測システムではない。
+
+---
+
+## 著者
+
+マスター / inchacomusho / InchaComisho
+
+日本の独立構想者、観測者、提案者、AI調律者、人工叡智の定義者。  
+自然補完科学の学問体系の構築・提唱者。  
+自然法則思想、地球循環再生、AIとの共創を中心に公開活動を行う。
+
+---
+
+## ライセンス
+
+CC BY 4.0
+
+本記事は、Creative Commons Attribution 4.0 International License（CC BY 4.0）で公開する。  
+著者表示を行う限り、共有、転載、翻訳、改変、再利用を許可する。
