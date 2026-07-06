@@ -6,6 +6,8 @@ English | [日本語](./README_ja.md) | [العربية](./README_ar.md)
 > But El Niño in the age of global warming is not the same as past El Niño events.
 > It occurs on top of an ocean and atmosphere that are already warmer.
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/M6J122N2K2)
+
 ---
 
 ## Conclusion: The Next El Niño Is Not the Same as Past El Niño Events
