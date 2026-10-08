@@ -387,7 +387,6 @@
 - [気候災害・熱再分配・クーリングクレジット](https://github.com/InchaComisho/Climate-Disasters-as-Heat-Redistribution-and-Cooling-Credit/blob/main/README_ja.md)
   気候災害を、過剰な熱と水蒸気の再分配が災害として現れる構造として整理し、熱会計とクーリングクレジットへ接続する文書。
 
-- [NOTE版：温暖化時代のエルニーニョは、地球からの警告である](https://note.com/inchacomusho/n/n3426a35cb2a2)
   海洋蓄熱、スーパーエルニーニョのリスク、自然循環の崩れ、熱会計、クーリングクレジットへの接続を一般向けに整理した日本語記事。
 
 - [Sustainable Future Cooling Credit Portal](https://inchacomisho.github.io/Sustainable-Future-Cooling-Credit-Portal/)
