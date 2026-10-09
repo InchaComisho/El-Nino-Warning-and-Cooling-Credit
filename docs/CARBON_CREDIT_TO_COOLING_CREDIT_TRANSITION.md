@@ -1,5 +1,7 @@
 # Carbon Credit to Cooling Credit Transition
 
+[日本語版はこちら / Japanese version](CARBON_CREDIT_TO_COOLING_CREDIT_TRANSITION_ja.md)
+
 Carbon Credits may support emissions accounting, but they do not directly measure whether the Earth has physically cooled. Cooling Credits are proposed to fill that missing layer: measurable thermal accounting.
 
 ## 1. Why Carbon Accounting Alone Is Not Enough

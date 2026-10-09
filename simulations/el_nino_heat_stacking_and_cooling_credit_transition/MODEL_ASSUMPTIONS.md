@@ -1,5 +1,7 @@
 # Model Assumptions
 
+[日本語版はこちら / Japanese version](MODEL_ASSUMPTIONS_ja.md)
+
 This simulation is intentionally simple. It is designed to clarify causal logic, not to forecast climate outcomes.
 
 ## Scope

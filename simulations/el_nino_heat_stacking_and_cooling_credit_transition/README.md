@@ -1,5 +1,7 @@
 # El Nino Heat-Stacking and Cooling Credit Transition Simulation
 
+[日本語版はこちら / Japanese version](README_ja.md)
+
 This module is a conceptual, index-based, counterfactual simulation for comparing climate-policy pathways under El Nino heat-stacking risk from 2015 to 2035.
 
 It is not a precise climate forecast. It is a causal teaching model that asks how different policy frames respond when El Nino occurs on top of accumulated ocean heat, land heat, WBGT risk, soil dryness, and weakened natural cooling functions.
